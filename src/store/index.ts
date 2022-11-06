@@ -130,6 +130,11 @@ export default createStore({
                 return object.id === posts;
             });
             state.cards.splice(indexOfObject, 1);
+            //removing vote object depend on deleted card's id
+            const voteObj = state.cardVoties.filter(function( obj ) {
+                return obj.card_id !== posts;
+            });
+            state.cardVoties = voteObj;
         },
         //setText mutation for updating text of card
         setText(state, posts) {
@@ -145,7 +150,6 @@ export default createStore({
         },
         //setVote mutation for adding and removing dot voting of card
         setVote(state, posts) {
-            console.log("posts",posts)
             if(posts.status !== true) {
                 const idxObj = state.cardVoties.findIndex(object => {
                     return object.userId === posts.userId && object.card_id === posts.data.id && object.category_id === posts.data.category_id;
