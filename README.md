@@ -1,5 +1,8 @@
 # scrum-retro-app
 
+![retro](https://user-images.githubusercontent.com/9948191/200199093-75af3cb2-eab3-4c11-a62f-76160ca686fb.JPG)
+
+
 ## Project setup
 ```
 npm install
